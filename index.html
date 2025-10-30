@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMKN 3 Bengkulu</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(180deg, #e9fcef, #f7fff9);
+      color: #1f4d2a;
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: linear-gradient(90deg, #1e7a46, #33a065);
+      color: white;
+      text-align: center;
+      padding: 30px 10px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      background-color: #e6fce7;
+      text-align: center;
+      padding: 14px 0;
+      border-bottom: 3px solid #1e7a46;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      position: relative;
+      text-decoration: none;
+      color: #1e7a46;
+      margin: 0 16px;
+      font-weight: 600;
+      font-size: 17px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      display: inline-block;
+      overflow: hidden;
+    }
+
+    /* efek kilau di bawah teks */
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 4px;
+      transform: translateX(-50%) scaleX(0);
+      width: 80%;
+      height: 3px;
+      background: linear-gradient(90deg, #1e7a46, #33a065);
+      border-radius: 4px;
+      transition: transform 0.3s ease;
+    }
+
+    /* efek cahaya hijau lembut */
+    nav a::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(50, 255, 100, 0.4);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.4s ease, height 0.4s ease, opacity 0.4s ease;
+      opacity: 0;
+      z-index: -1;
+    }
+
+    nav a:hover {
+      color: #fff;
+      background: linear-gradient(90deg, #1e7a46, #33a065);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transform: translateY(-2px);
+    }
+
+    nav a:hover::after {
+      transform: translateX(-50%) scaleX(1);
+    }
+
+    nav a:hover::before {
+      width: 180%;
+      height: 400%;
+      opacity: 1;
+    }
+
+    .content {
+      background-color: #fff;
+      width: 85%;
+      max-width: 950px;
+      margin: 50px auto 100px auto;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      animation: fadeIn 1s ease-out;
+    }
+
+    .content h2 {
+      color: #1e7a46;
+      font-size: 1.9rem;
+      margin-bottom: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .content h2::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #1e7a46, #33a065);
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -8px;
+      border-radius: 10px;
+    }
+
+    .content p {
+      text-align: justify;
+      margin-bottom: 18px;
+      font-size: 1rem;
+      color: #2e4e2e;
+    }
+
+    .content img {
+      margin-top: 30px;
+      width: 100%;
+      max-width: 800px;
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .content img:hover {
+      transform: scale(1.04);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.3);
+    }
+
+    footer {
+      text-align: center;
+      padding: 14px;
+      background: linear-gradient(90deg, #1e7a46, #33a065);
+      color: white;
+      font-size: 0.9rem;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
+      line-height: 1.5;
+    }
+
+    footer span {
+      display: block;
+      font-size: 0.85rem;
+      color: #dfffe2;
+      letter-spacing: 0.5px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsif di HP */
+    @media (max-width: 768px) {
+      header {
+        font-size: 1.3rem;
+        padding: 20px 5px;
+      }
+
+      nav {
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav a {
+        margin: 4px;
+        font-size: 15px;
+        padding: 6px 10px;
+      }
+
+      .content {
+        width: 92%;
+        padding: 22px;
+        margin: 30px auto 80px auto;
+      }
+
+      .content h2 {
+        font-size: 1.4rem;
+      }
+
+      .content p {
+        font-size: 0.95rem;
+      }
+
+      footer {
+        font-size: 0.8rem;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SMK Negeri 3 Kota Bengkulu</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="profile.html">Profile</a>
+    <a href="dataguru.html">Data Guru</a>
+    <a href="datasiswa.html">Data Siswa</a>
+    <a href="kontak.html">Kontak</a>
+  </nav>
+
+  <div class="content">
+    <h2>Selamat Datang di Website Resmi SMKN 3 Kota Bengkulu</h2>
+    <p>
+      SMK Negeri 3 Kota Bengkulu adalah sekolah kejuruan unggulan dengan akreditasi <b>A</b>, 
+      berlokasi di Jl. Jati No. 42, Padang Jati, Kec. Ratu Samban, Kota Bengkulu. 
+      Sekolah ini memiliki tenaga pendidik profesional lebih dari 120 orang, 
+      serta jumlah siswa mencapai lebih dari 1.500 dari berbagai jurusan keahlian.
+    </p>
+    <p>
+      SMKN 3 Bengkulu berkomitmen menjadi pusat pendidikan vokasi yang 
+      menyiapkan generasi muda agar memiliki keterampilan, etika, dan karakter unggul 
+      sesuai kebutuhan dunia kerja modern. Dengan fasilitas lengkap dan sistem 
+      pembelajaran berbasis kompetensi, sekolah ini terus berinovasi mencetak 
+      lulusan yang siap kerja, kreatif, dan berdaya saing tinggi.
+    </p>
+    <p>
+      Melalui website ini, Anda dapat menjelajahi profil sekolah, 
+      mengenal para guru, melihat data siswa, serta menghubungi pihak sekolah 
+      untuk berbagai informasi penting. Terima kasih telah mengunjungi 
+      situs resmi SMK Negeri 3 Kota Bengkulu.
+    </p>
+
+    <img src="smkn3.jpg" alt="Gedung SMKN 3 Kota Bengkulu">
+  </div>
+
+  <footer>
+    ©2025 Web ini dibuat oleh <b>BennyCyber</b>
+    <span>TKJ SMKN 3 BKL</span>
+  </footer>
+</body>
+</html>
+
